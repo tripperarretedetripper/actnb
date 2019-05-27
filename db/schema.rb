@@ -21,13 +21,26 @@ ActiveRecord::Schema.define(version: 201905271507615) do
     t.string "type"
     t.integer "price"
     t.text "description"
-    t.integer "nb_participant"
+    t.integer "nb_participants"
     t.bigint "seller_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seller_id"], name: "index_activities_on_seller_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "date"
+    t.string "status", default: "pending"
+    t.integer "total_price"
+    t.integer "participants_number"
+    t.bigint "user_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_bookings_on_activity_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +60,6 @@ ActiveRecord::Schema.define(version: 201905271507615) do
   end
 
   add_foreign_key "activities", "users", column: "seller_id"
+  add_foreign_key "bookings", "activities"
+  add_foreign_key "bookings", "users"
 end
