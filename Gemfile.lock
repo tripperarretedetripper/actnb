@@ -66,13 +66,10 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
-<<<<<<< HEAD
     faker (1.9.3)
       i18n (>= 0.7)
-=======
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
->>>>>>> master
     ffi (1.11.1)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
