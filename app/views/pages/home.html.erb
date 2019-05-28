@@ -1,4 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-<%= link_to "Sign in with Google", user_google_omniauth_authorize_path %>
+
+<div>
+  <input type="text">
+  <button>Let's go!</button>
+</div>
+
+<%= form_tag(activities_path method: :get) do %>
+  Location <%= text_field_tag :address %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
