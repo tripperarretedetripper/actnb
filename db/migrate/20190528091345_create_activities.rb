@@ -6,7 +6,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :type
       t.integer :price
       t.text :description
-      t.integer :nb_participants
+      t.integer :participants_number
       t.references :seller, foreign_key: { to_table: :users}
       t.datetime :start_date
       t.datetime :end_date
