@@ -1,2 +1,24 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+<div class="m-5 p-5">
+<p><%= link_to "Back", activities_path %></p>
+<div class="container-show d-flex p-4">
+  <div class="container-activity d-flex">
+    <div class="container-activity-details">
+      <h2><%= @activity.name %></h2>
+      <p><%= @activity.description %></p>
+      <p><i class="fas fa-map-marker-alt"></i> <%= @activity.address %></p>
+    </div>
+    <div class="container-activity-photo mx-5">
+      <div class="d-flex justify-content-between">
+      <p><%= @activity.type_activity %></p>
+      <p>Max: <%= @activity.max_participants %> <i class="fas fa-user-friends"></i></p>
+      <p>Price: <%= @activity.price %> €/pers</p>
+      </div>
+      <%= image_tag "https://source.unsplash.com/random" %>
+    </div>
+  </div>
+  <div class="container-new-booking">
+    <p>New Booking</p>
+  </div>
+</div>
+
+
