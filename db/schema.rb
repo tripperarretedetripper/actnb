@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_091429) do
     t.string "type"
     t.integer "price"
     t.text "description"
-    t.integer "participants_number"
+    t.integer "max_participants"
     t.bigint "seller_id"
     t.datetime "start_date"
     t.datetime "end_date"
