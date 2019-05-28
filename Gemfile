@@ -27,6 +27,8 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem 'faker'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
