@@ -1,6 +1,11 @@
 class ActivitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :index, :show]
   def index
-    @activities = Activity.all
+    if params[:location]
+      @activities = Activity.where('address LIKE ?', "%#{params[:location]}%")
+    else
+      @activities = Activity.all
+    end
   end
 
   def new
@@ -23,6 +28,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :start_date, :end_date)
+    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :start_date, :end_date, :location)
   end
 end
