@@ -3,16 +3,16 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    # @activity = Activity.new
+    @activity = Activity.new
   end
 
   def create
-    # @activity = Activity.new(activity_params)
-    # if @activity.save
-    #   redirect_to new_activity_path
-    # else
-    #   render :new
-    # end
+    @activity = Activity.new(activity_params)
+    if @activity.save
+      redirect_to new_activity_path
+    else
+      render :new
+    end
   end
 
   def show

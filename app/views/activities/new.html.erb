@@ -1,2 +1,43 @@
-<h1>Activities#new</h1>
-<p>Find me in app/views/activities/new.html.erb</p>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create a new activity</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="_new.scss">
+  </head>
+  <body>
+    <div class="d-flex">
+      <div class="col-md-6">
+        <h1>New activity</h1>
+        <%= simple_form_for @activity do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :max_participants %>
+        <%= f.input :address %>
+        <%= f.input :type_activity, collection: ["Outdoor", "Indoor"] %>
+
+      </div>
+         <div class="col-md-6">
+           <%= f.input :name, collection: [:Monday, :Tueasday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday], as: :check_boxes %>
+        <% end %>
+
+          <div class="form-group">
+            <label>Upload Image</label>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <span class="btn btn-default btn-file">
+                  Upload your pictures<input type="file" id="imgInp">
+                </span>
+              </span>
+            </div>
+            <img id='img-upload'/>
+          </div>
+        </div>
+        <p>bksz</p>
+        <button type="button" class="btn btn-primary btn-lg">Create</button>
+      </div>
+    </div>
+  </body>
+</html>
