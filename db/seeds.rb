@@ -2,17 +2,18 @@ require 'faker'
 
 puts "clearing db"
 type_array = %w(sport culture indoor outdoor chill relax beach karting)
-User.destroy_all
-Reservation.destroy_all
+Booking.destroy_all
 Activity.destroy_all
+User.destroy_all
 
 20.times do
 User.create!({
-  firstname: Faker::Name.first_name,
-  lastname: Faker::Name.last_name,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
   phone: Faker::PhoneNumber.phone_number,
-  address: Faker::Address.full_address
+  address: Faker::Address.full_address,
+  password: 'unpasswordlong'
 
   })
 end
@@ -21,34 +22,33 @@ puts "creatin 2 activities for each user"
 
 User.all.each do |single_user|
   2.times do
-    single_user.activity.build({
+    Activity.create!({
       name: Faker::Name.first_name,
-      location: Faker::Address.full_address,
-      type: type_array.sample
+      address: Faker::Address.full_address,
+      type_activity: type_array.sample,
       price: rand(25),
       description: Faker::Lorem.sentence,
-      nbmaxplaces: rand(12),
+      max_participants: rand(12),
       start_date: Faker::Date.forward(10),
       end_date: Faker::Date.forward(35),
-
+      seller: single_user
        })
   end
 end
 puts "done creating activities related to users"
-puts "creating reservations linking users& activities"
+puts "creating Booking linking users& activities"
 
 User.first(10).each do |active_user|
-  active_user.reservation.activity = sample(Activity.all)
-  active_user.reservation.build({
+  Booking.create!({
     date: Faker::Date.forward(50),
-    nbparticipants: rand(6),
+    participants_number: rand(6),
     status: "pending",
-    totalprice: rand(150),
-
+    total_price: rand(150),
+    activity: Activity.all.sample,
+    user: active_user
   })
-
 end
-puts "reservations should be linking models"
+puts " should be linking models"
 
 
 puts "job's done"
