@@ -1,2 +1,27 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+<% @bookings.each do |booking| %>
+<div class="card-product card-product-margin-content">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <div class="card-product-infos">
+    <h2><%= booking.activity.name %></h2>
+    <div class="card-product-infos-details">
+    <p>Date: <%= booking.date.strftime("%Y-%d-%m") %></p>
+    <p> <%= booking.participants_number %> <i class="fas fa-user-friends"></i></p>
+    <p> Total price: <%= booking.total_price %>€</p>
+    </div>
+  </div>
+  <div class="card-product-status">
+    <h2>
+      <% if booking.status == "pending" %>
+      <i class="fas fa-hourglass-half"></i>
+      <% elsif booking.status == "confirmed" %>
+        <i class="fas fa-check"></i>
+        <% else %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+      <%= booking.status.capitalize %></h2>
+      <p> <%= link_to "View activity", activity_path(booking.activity) %></p>
+  </div>
+</div>
+<% end %>
+</div>
