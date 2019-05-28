@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
   private
