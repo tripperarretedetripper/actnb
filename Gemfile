@@ -29,3 +29,6 @@ group :development, :test do
 end
 
 gem 'faker'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-google'
