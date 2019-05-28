@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_090718) do
-
+ActiveRecord::Schema.define(version: 2019_05_28_091429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_090718) do
     t.string "type"
     t.integer "price"
     t.text "description"
-    t.integer "nb_participants"
+    t.integer "max_participants"
     t.bigint "seller_id"
     t.datetime "start_date"
     t.datetime "end_date"
