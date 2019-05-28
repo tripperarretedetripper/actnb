@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  belongs_to :seller, class_name: 'User', dependece: :destroy
+  belongs_to :seller, class_name: 'User', dependence: :destroy
   has_many :bookings
 
   validates :name, :address, :type, :price, :description, presence: true
