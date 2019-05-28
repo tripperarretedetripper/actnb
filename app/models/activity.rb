@@ -3,6 +3,6 @@ class Activity < ApplicationRecord
   has_many :bookings
 
   validates :name, :address, :type_activity, :price, :description, presence: true
-  validates :max_participants, :start_date, :end_date, :seller, presence: true
+  validates :max_participants, :seller, presence: true
   validates :price, :max_participants, numericality: { only_integer: true }
 end

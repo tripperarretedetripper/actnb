@@ -1,0 +1,105 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  margin-left: 10px;
+}
+
+.color_white{
+  color: white;
+}
+
+span {
+  font-size : 12px;
+}
+
+h3 {
+  background-color: white;
+  color: #23282E;
+}
+
+.card-category {
+
+background-image: asset-url('Surf.jpg');
+background-size: cover;
+background-position: center;
+height: 30vh;
+position : relative;
+border-radius : 4px;
+}
+
+.card_bottom_info {
+  color: #23282E;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  font-weight: bolder;
+
+}
+
+.card_bottom_info p {
+  margin-bottom: 0;
+  padding: 10px;
+}
+// #price, #nb_people {
+//   position: absolute;
+//   margin-bottom: 0;
+//   bottom: 5px;
+
+//   // font-size : 20px;
+// }
+
+// #price {
+//   right: 10px;
+//   font-weight: bolder;
+// }
+
+// #nb_people {
+//   position: absolute;
+//   margin-bottom: 0;
+//   bottom: 5px;
+//   left: 10px;
+//   font-weight: bolder;
+//   color: #23282E;
+// }
+
+.description {
+  background-color: white;
+  color: #23282E;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
