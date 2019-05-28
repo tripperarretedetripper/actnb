@@ -17,10 +17,10 @@
         <%= f.input :max_participants %>
         <%= f.input :address %>
         <%= f.input :type_activity, collection: ["Outdoor", "Indoor"] %>
-
       </div>
          <div class="col-md-6">
-           <%= f.input :name, collection: [:Monday, :Tueasday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday], as: :check_boxes %>
+           <%= f.input :end_date, collection: [:Monday, :Tueasday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday], as: :check_boxes %>
+           <%= f.button :submit %>
         <% end %>
 
           <div class="form-group">
@@ -35,8 +35,8 @@
             <img id='img-upload'/>
           </div>
         </div>
-        <p>bksz</p>
-        <button type="button" class="btn btn-primary btn-lg">Create</button>
+
+
       </div>
     </div>
   </body>

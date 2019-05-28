@@ -14,8 +14,9 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.seller = current_user
     if @activity.save
-      redirect_to new_activity_path
+      redirect_to activities_path
     else
       render :new
     end
@@ -28,6 +29,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :start_date, :end_date, :location)
+    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location)
   end
 end
