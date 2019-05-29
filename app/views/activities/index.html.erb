@@ -5,7 +5,9 @@
   <h1 class="text-center"> All activities</h1>
   <% end %>
 <h2 class="text-center mb-4">Choose wich activity you want to do</h2>
-<%= link_to "New activtiy", new_activity_path %>
+<% if policy(Activity).new? %>
+  <%= link_to "New Activity", new_activity_path %>
+<% end %>
 <div class="container d-flex justify-content-around mt-4">
 
 <div id="map">
