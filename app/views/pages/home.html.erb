@@ -3,13 +3,13 @@
   <div class="banner">
     <div class="d-flex align-items-center justify-content-around">
       <div>
-        <h1>Welcome to actbnb</h1>
-        <p>The best you ever used</p>
+        <h1><b>Welcome to actbnb</b></h1>
+        <p>Réservez des activités pour vivre des expériences uniques</p>
       </div>
-      <%= image_tag 'travelers.png', class:'rounded float-right', style:'height: 400px; width: 400px'%>
+      <%= image_tag 'travelers.png', class:'rounded float-right img-home', style:'height: 400px; width: 400px'%>
     </div>
   </div>
-  <div>
+  <div class="search-hp">
     <form action='activities' method='get' class='d-flex align-items-center'>
       <input id='search' name='location' type='text' placeholder='Location' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
       <input type='submit' class="btn btn-outline-success btn-lg rounded" value="Find activities !" style="max-height:48px;">
