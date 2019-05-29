@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-  margin-left: 10px;
 }
 
 .color_white{
@@ -13,20 +12,28 @@ span {
   font-size : 12px;
 }
 
-h3 {
+.activity-title{
   background-color: white;
   color: #23282E;
+  padding: 5px;
+}
+
+.activity-title h3 {
+  margin-bottom: 0;
 }
 
 .card-category {
-
 background-image: asset-url('Surf.jpg');
 background-size: cover;
 background-position: center;
 height: 30vh;
 position : relative;
-border-radius : 4px;
+// border-radius : 15px;
 }
+
+// .activities_list {
+//   border-radius: 5px;
+// }
 
 .card_bottom_info {
   color: #23282E;
@@ -35,38 +42,55 @@ border-radius : 4px;
   bottom: 0px;
   width: 100%;
   font-weight: bolder;
+   margin-bottom: 0;
+  padding: 5px;
+}
 
+#nb-people {
+  font-size: 12px;
+  font-weight: lighter;
+
+}
+
+#place {
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 .card_bottom_info p {
   margin-bottom: 0;
-  padding: 10px;
+  padding: 5px;
 }
-// #price, #nb_people {
-//   position: absolute;
-//   margin-bottom: 0;
-//   bottom: 5px;
 
-//   // font-size : 20px;
-// }
-
-// #price {
-//   right: 10px;
-//   font-weight: bolder;
-// }
-
-// #nb_people {
-//   position: absolute;
-//   margin-bottom: 0;
-//   bottom: 5px;
-//   left: 10px;
-//   font-weight: bolder;
-//   color: #23282E;
-// }
+.card-activity {
+  height: 30vh;
+  border-radius : 10px;
+}
 
 .description {
   background-color: white;
   color: #23282E;
+  padding: 10px;
+  flex-grow : 1;
+}
+
+.description h5 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.when-start-end {
+  background-color: #23282E;
+  color: white;
+}
+
+.when-start-end span {
+  font-weight : 600;
+  font-size : 16px;
+}
+
+.when-start-end p {
+  margin-bottom : 0;
 }
 
 // Smallest device

@@ -5,34 +5,47 @@
 <h1 class="text-center"> All activities</h1>
 <% end %>
 <h2 class="text-center mb-4">Choose wich activity you want to do</h2>
-<% if policy(Activity).new? %>
-  <%= link_to "New Activity", new_activity_path %>
-<% end %>
-<div class="container d-flex justify-content-around mt-4">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
 
+<div class="new-search d-flex justify-content-center">
+    <form action='activities' method='get' class='d-flex align-items-center'>
+      <input id='search' name='location' type='text' placeholder='Location' class='font-italic' style="padding: 10px;width: 300px;margin: 20px;" />
+      <input type='submit' class="btn btn-outline-success btn-lg rounded" value="New search" style="max-height:48px;">
+    </form>
+  </div>
+<% if policy(Activity).new? %>
+    <%= link_to "New Activity", new_activity_path %>
+  <% end %>
+<div class="index-activities-container d-flex justify-content-around mt-4 ml-auto mr-auto">
+  <div class="container d-flex justify-content-around mt-4">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   <div class="activities_list cards color_white text-center">
     <% @activities.each do |activity| %>
     <div class="card-category">
-      <h3><%= activity.name %><span>  <%= activity.type_activity %></span></h3>
+      <div class="activity-title d-flex justify-content-between align-items-center pl-3 pr-3">
+        <h3><%= activity.name %></h3>
+        <span><%= activity.type_activity %></span>
+      </div>
       <div class="card_bottom_info d-flex justify-content-between align-items-center">
-        <p id="nb_people"><%= activity.max_participants %> people</p>
-        <p id="price"><%= activity.price %> €</p>
+        <p id="nb-people"><%= activity.max_participants %> place(s)</p>
+        <p id="price"><%= activity.price %> $</p>
       </div>
     </div>
-
-    <div class="description">
-      <p>Start on : <%= activity.start_date %></p>
-      <p>leave at :<%= activity.end_date %></p>
-      <p>description : <%= activity.description %></p>
+    <div class=" card-activity d-flex flex-column">
+      <div class="description ">
+        <h5>Activity description : </h5>
+        <p> <%= activity.description %></p>
+      </div>
+      <div class="when-start-end d-flex flex-column mt-auto justify-content-center">
+        <p><span>Start on : </span><%= activity.start_date %></p>
+        <p><span>Leave at : </span><%= activity.end_date %></p>
+      </div>
     </div>
-
     <% end %>
   </div>
 </div>
