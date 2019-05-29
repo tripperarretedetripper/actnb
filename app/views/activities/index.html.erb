@@ -12,9 +12,6 @@
       <input type='submit' class="btn btn-outline-success btn-lg rounded" value="New search" style="max-height:48px;">
     </form>
   </div>
-<% if policy(Activity).new? %>
-    <%= link_to "New Activity", new_activity_path %>
-  <% end %>
 <div class="index-activities-container d-flex justify-content-around mt-4 ml-auto mr-auto">
   <div class="container d-flex justify-content-around mt-4">
     <div
@@ -26,6 +23,7 @@
     ></div>
   <div class="activities_list cards color_white text-center">
     <% @activities.each do |activity| %>
+    <%= link_to activity_path(activity) do%>
     <div class="card-category">
       <div class="activity-title d-flex justify-content-between align-items-center pl-3 pr-3">
         <h3><%= activity.name %></h3>
@@ -33,19 +31,20 @@
       </div>
       <div class="card_bottom_info d-flex justify-content-between align-items-center">
         <p id="nb-people"><%= activity.max_participants %> place(s)</p>
-        <p id="price"><%= activity.price %> $</p>
+        <p id="price"><%= activity.price %> €/pers</p>
       </div>
     </div>
-    <div class=" card-activity d-flex flex-column">
-      <div class="description ">
+    <%end%>
+   <!--  <div class=" card-activity d-flex flex-column">
+      <!-- <div class="description ">
         <h5>Activity description : </h5>
         <p> <%= activity.description %></p>
+      </div> -->
+ <!--      <div class="when-start-end d-flex flex-column mt-auto justify-content-center">
+        <p><span>From: </span><%= activity.start_date.strftime("%Y-%d-%m") %></p>
+        <p><span>Until : </span><%= activity.end_date.strftime("%Y-%d-%m") %></p>
       </div>
-      <div class="when-start-end d-flex flex-column mt-auto justify-content-center">
-        <p><span>Start on : </span><%= activity.start_date %></p>
-        <p><span>Leave at : </span><%= activity.end_date %></p>
-      </div>
-    </div>
+    </div> --> -->
     <% end %>
   </div>
 </div>
