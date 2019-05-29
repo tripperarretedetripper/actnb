@@ -38,6 +38,7 @@ class ActivitiesController < ApplicationController
   def show
     authorize @activity
     @activity = Activity.find(params[:id])
+    @booking = Booking.new
   end
 
   private

@@ -18,8 +18,40 @@
       <%= image_tag "https://source.unsplash.com/random" %>
     </div>
   </div>
+
   <div class="container-new-booking">
-    <p>New Booking</p>
+
+    <div class="form-container">
+
+      <div class="header">
+        <div class="header-row">
+          <div class="big-bold" id="price" data-amount-cents="1"><%= @activity.price %>€</div>
+          <div class="small-light"> / PARTICIPANT</div>
+        </div>
+      </div>
+
+
+
+    <%= simple_form_for([@activity, @booking]) do |f| %>
+      <%= f.input :date, type: :date %>
+
+      <div class="flex-between mt-4">
+        Participants:
+        <div class="actions">
+          <btn href="#" class="btn round-bordered incrementer minus" disabled data-offset="-1">-</btn>
+          <span id="counter" data-count="1">1</span>
+          <btn href="#" class="btn round-bordered incrementer plus" data-offset="1">+</btn>
+        </div>
+      </div>
+      <%= f.input :participants_number, as: :hidden %>
+
+      <div id="total-price" class="mb-4">Total price: <strong><%= @activity.price %>€ </strong></div>
+      <%# f.input :date, :as => :string, :input_html => { :class => 'date_picker' } %>
+      <%= f.button :submit, class: 'btn btn-outline-primary' %>
+    <% end %>
+
+    </div>
+
   </div>
 </div>
 
