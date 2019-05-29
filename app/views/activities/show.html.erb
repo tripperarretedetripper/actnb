@@ -1,5 +1,7 @@
 <div class="m-5 p-5">
-<p><%= link_to "Back", activities_path %></p>
+<p><% if policy(Activity).index? %>
+  <%= link_to "Back", activities_path %>
+<% end %></p>
 <div class="container-show d-flex p-4">
   <div class="container-activity d-flex">
     <div class="container-activity-details">

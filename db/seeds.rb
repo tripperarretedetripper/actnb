@@ -49,7 +49,34 @@ User.first(10).each do |active_user|
   })
 end
 puts " should be linking models"
+puts "creating fake users with known ids"
+User.create!({
+  first_name: "Jean-michel",
+  last_name: "iencli",
+  email: "jmdupont@wagon.com",
+  phone: Faker::PhoneNumber.phone_number,
+  address: Faker::Address.full_address,
+  password: 'password'
 
+  })
+User.create!({
+  first_name: "jm",
+  last_name: "buyer",
+  email: Faker::Internet.email,
+  phone: Faker::PhoneNumber.phone_number,
+  address: Faker::Address.full_address,
+  password: 'password'
+
+  })
+User.create!({
+  first_name: "jm",
+  last_name: "seller",
+  email: Faker::Internet.email,
+  phone: Faker::PhoneNumber.phone_number,
+  address: Faker::Address.full_address,
+  password: 'password'
+
+  })
 
 puts "job's done"
 
