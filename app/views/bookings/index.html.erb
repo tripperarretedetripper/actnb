@@ -2,7 +2,7 @@
 
 <% @bookings.each do |booking| %>
 <div class="card-product card-product-margin-content">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <%= cl_image_tag booking.activity.photo, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <h2><%= booking.activity.name %></h2>
     <div class="card-product-infos-details">
