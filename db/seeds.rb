@@ -2,6 +2,8 @@ require 'faker'
 
 puts "clearing db"
 type_array = %w(sport culture indoor outdoor chill relax beach karting)
+activity_array = %w(football, cycling, parachute jump, kayak, climbing)
+activity_address = ["34, boulevard Charles-Livon, Marseille", "42, rue des Petites-Maries, Marseille", "62, boulevard des Dames, Marseille", "30, place Notre-Dame-du-Mont, Marseille", "45, quai de Rive-Neuve, Marseille"]
 Booking.destroy_all
 Activity.destroy_all
 User.destroy_all
@@ -23,7 +25,7 @@ puts "creatin 2 activities for each user"
 User.all.each do |single_user|
   2.times do
     Activity.create!({
-      name: Faker::Name.first_name,
+      name: activity_array.sample,
       address: Faker::Address.full_address,
       type_activity: type_array.sample,
       price: rand(25),
@@ -35,6 +37,22 @@ User.all.each do |single_user|
        })
   end
 end
+puts "creating activities in Marseille"
+x = 0
+  5.times do
+    Activity.create!({
+      name: activity_array.sample,
+      address: activity_address[x],
+      type_activity: type_array.sample,
+      price: rand(20..100),
+      description: Faker::Lorem.sentence,
+      max_participants: rand(1..12),
+      start_date: Faker::Date.forward(10),
+      end_date: Faker::Date.forward(35),
+      seller: User.first
+       })
+    x +=1
+  end
 puts "done creating activities related to users"
 puts "creating Booking linking users& activities"
 
