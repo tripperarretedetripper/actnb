@@ -2,7 +2,7 @@ require 'faker'
 
 puts "clearing db"
 type_array = %w(sport culture indoor outdoor chill relax beach karting)
-activity_array = %w(football, cycling, parachute jump, kayak, climbing)
+activity_array = %w(football cycling parachute kayak climbing)
 activity_address = ["34, boulevard Charles-Livon, Marseille", "42, rue des Petites-Maries, Marseille", "62, boulevard des Dames, Marseille", "30, place Notre-Dame-du-Mont, Marseille", "45, quai de Rive-Neuve, Marseille"]
 Booking.destroy_all
 Activity.destroy_all
