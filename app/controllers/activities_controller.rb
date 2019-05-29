@@ -1,8 +1,19 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @activities = Activity.where.not(latitude: nil, longitude: nil)
+
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
+      }
+    end
+
     if params[:location]
-      @activities = Activity.where('address LIKE ?', "%#{params[:location]}%")
+      @activities = Activity.where('address LIKE ?', params[:location])
     else
       @activities = Activity.all
     end
@@ -29,6 +40,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location)
+    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location, :latitude, :longitude)
   end
 end
