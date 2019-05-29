@@ -25,7 +25,7 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 gem 'faker'
@@ -34,3 +34,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'geocoder'
 gem 'pundit'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
