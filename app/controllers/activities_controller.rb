@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_paramsparams)
+    @activity = Activity.new(activity_params)
     @activity.seller = current_user
     authorize @activity
     if @activity.save
