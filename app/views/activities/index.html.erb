@@ -1,46 +1,38 @@
 <!-- <h1 class="text-center">Activities in <%# params[:location].nil? ? return params[:location].capitalize : "all" %></h1> -->
 <% if params[:location] != "" %>
-  <h1 class="text-center"> Activities in <%= params[:location] %></h1>
-    <% elsif params[:location] == "" || params[:location].nil? %>
-  <h1 class="text-center"> All activities</h1>
-  <% end %>
+<h1 class="text-center"> Activities in <%= params[:location] %></h1>
+<% elsif params[:location] == "" || params[:location].nil? %>
+<h1 class="text-center"> All activities</h1>
+<% end %>
 <h2 class="text-center mb-4">Choose wich activity you want to do</h2>
 <% if policy(Activity).new? %>
   <%= link_to "New Activity", new_activity_path %>
 <% end %>
 <div class="container d-flex justify-content-around mt-4">
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
-<div id="map">
-  <%= image_tag "map_activities.png", alt: "map" %>
-</div>
+  <div class="activities_list cards color_white text-center">
+    <% @activities.each do |activity| %>
+    <div class="card-category">
+      <h3><%= activity.name %><span>  <%= activity.type_activity %></span></h3>
+      <div class="card_bottom_info d-flex justify-content-between align-items-center">
+        <p id="nb_people"><%= activity.max_participants %> people</p>
+        <p id="price"><%= activity.price %> €</p>
+      </div>
+    </div>
 
+    <div class="description">
+      <p>Start on : <%= activity.start_date %></p>
+      <p>leave at :<%= activity.end_date %></p>
+      <p>description : <%= activity.description %></p>
+    </div>
 
-
-<div class="activities_list cards color_white text-center">
-<% @activities.each do |activity| %>
-  <div class="card-category">
-
-
-
-  <h3><%= activity.name %><span>  <%= activity.type_activity%></span></h3>
-  <div class="card_bottom_info d-flex justify-content-between align-items-center rounded">
-  <p id="nb_people"><%= activity.max_participants %> people</p>
-  <p id="price"><%= activity.price %> €</p>
+    <% end %>
   </div>
-
-
-   </div>
-<div class="description">
-  <p>From : <%= activity.start_date.strftime("%Y-%d-%m") %></p>
-  <p>Until :<%= activity.end_date.strftime("%Y-%d-%m") %></p>
-  <p>Description : <%= activity.description %></p>
-
 </div>
-
-<% end %>
-</div>
-
-
-
-</div>
-

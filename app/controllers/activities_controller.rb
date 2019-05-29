@@ -1,6 +1,17 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
+    @activities = Activity.where.not(latitude: nil, longitude: nil)
+
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { activity: activity })
+      }
+    end
+
     if params[:location]
       @activities = policy_scope(Activity).where('address LIKE ?', "%#{params[:location]}%")
     else
@@ -32,6 +43,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location, :photo)
+    params.require(:activity).permit(:name, :address, :price, :type_activity, :description, :max_participants, :location, :latitude, :longitude, :photo)
   end
 end
