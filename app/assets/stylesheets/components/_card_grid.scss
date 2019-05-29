@@ -23,17 +23,16 @@ span {
 }
 
 .card-category {
-background-image: asset-url('Surf.jpg');
 background-size: cover;
 background-position: center;
-height: 30vh;
+min-height: 35vh;
 position : relative;
 // border-radius : 15px;
 }
 
-// .activities_list {
-//   border-radius: 5px;
-// }
+.activities_list {
+  padding-top: 10px;
+}
 
 .card_bottom_info {
   color: #23282E;
