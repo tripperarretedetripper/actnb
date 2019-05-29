@@ -23,7 +23,7 @@
               <!-- <p>Price: <%= @activity.price %> €/pers</p> -->
           </div>
         </div>
-        <%= image_tag 'Surf.jpg', class:'w-100 h-auto mx-2 rounded'%>
+        <%= cl_image_tag @activity.photo, height: 260, width: 287, crop: :fill %>
     </div>
   </div>
 
