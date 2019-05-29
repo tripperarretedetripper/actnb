@@ -10,7 +10,9 @@
           <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %>/h6>
           <div class="d-flex flex-column justify-content-between">
           <p><%= @activity.description %></p>
-          <%= link_to "Back to my bookings", bookings_path %>
+          <% if policy(Activity).index? %>
+            <%= link_to "Back to my bookings", bookings_path %>
+          <% end %>
         </div>
       </div>
     </div>
