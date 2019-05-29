@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   def create
     @activity = Activity.find(params[:activity_id])
     @booking = Booking.new(params_booking)
+    authorize @booking
     @booking.activity = @activity
     @booking.user = current_user
     @booking.total_price = params[:booking][:participants_number].to_i * @activity.price
