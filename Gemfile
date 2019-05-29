@@ -32,5 +32,5 @@ gem 'faker'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
-
 gem 'geocoder'
+gem 'pundit'
