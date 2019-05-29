@@ -1,15 +1,15 @@
 <div class="p-5">
 <!-- <p><%= link_to "Back", activities_path %></p>--><div class="container-show d-flex p-4">
-  <div class="container-activity d-flex aligh-items-end mx-2">
+  <div class="container-activity d-flex aligh-items-end mx-3">
     <div class="card rounded" style="width: 25rem; border-radius: 4px important!">
       <div class="card-body">
         <div class="d-flex w-100 justify-content-between">
           <h5><%= @activity.name %></h5>
           <h5><%= @activity.type_activity %></h5>
         </div>
-          <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %>/h6>
+          <h6 class="mb-2 text-muted"><i class="fas fa-map-marker-alt"></i> <%= @activity.address %>/h6>
           <div class="d-flex flex-column justify-content-between">
-          <p><%= @activity.description %></p>
+          <p style="min-height: 150px; margin-top: 20px; color: black;"><%= @activity.description %></p>
           <% if policy(Activity).index? %>
             <%= link_to "Back to my bookings", bookings_path %>
           <% end %>
@@ -38,8 +38,6 @@
         </div>
       </div>
 
-
-
     <%= simple_form_for([@activity, @booking]) do |f| %>
       <%= f.input :date, type: :date %>
 
@@ -55,7 +53,7 @@
 
       <div id="total-price" class="mb-4">Total price: <strong><%= @activity.price %>€ </strong></div>
       <%# f.input :date, :as => :string, :input_html => { :class => 'date_picker' } %>
-      <%= f.button :submit, class: 'btn btn-outline-primary' %>
+      <%= f.button :submit, class: 'btn btn-outline-success' %>
     <% end %>
 
     </div>
