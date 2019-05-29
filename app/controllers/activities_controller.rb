@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
     if params[:location]
       @activities = policy_scope(Activity).where('address LIKE ?', "%#{params[:location]}%")
     else
-     @activities = policy_scope(Activity).order(created_at: :desc)
+      @activities = policy_scope(Activity).order(created_at: :desc)
     end
   end
 
@@ -36,8 +36,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    authorize @activity
     @activity = Activity.find(params[:id])
+    authorize @activity
     @booking = Booking.new
   end
 
