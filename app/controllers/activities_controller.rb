@@ -29,7 +29,7 @@ class ActivitiesController < ApplicationController
     @activity.seller = current_user
     authorize @activity
     if @activity.save
-      redirect_to activities_path
+      redirect_to activity_path(@activity)
     else
       render :new
     end
