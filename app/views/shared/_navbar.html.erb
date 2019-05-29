@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://branditprintit.com/wp-content/uploads/2017/04/logo-degin-logo-design-design-art-free.png" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,6 @@
         <%= link_to "Search", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item active">
-        <%#= link_to "Activities", activities_path, class: "nav-link" %>
         <% if policy(Activity).index? %>
           <%= link_to "Activities", activities_path, class: "nav-link" %>
         <% end %>
